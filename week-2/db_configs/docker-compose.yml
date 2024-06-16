@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: basic-mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ANSKk08aPEDbFjDO
+      MYSQL_DATABASE: testing
+    ports:
+      - "3306:3306"
+    restart: always
+
+  adminer:
+    image: adminer
+    container_name: basic-adminer
+    ports:
+      - "8080:8080"
+    restart: always
+
+volumes:
+    mysql-data:
+        driver: local
+
+
